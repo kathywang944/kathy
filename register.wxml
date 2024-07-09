@@ -1,0 +1,12 @@
+<!-- pages/register/register.wxml -->
+<view class="container">
+  <view class="header">
+    <text>注册</text>
+  </view>
+  <view class="form">
+    <input placeholder="手机号" bindinput="onPhoneNumberInput" />
+    <input placeholder="密码" password="true" bindinput="onPasswordInput" />
+    <button bindtap="register">注册</button>
+    <view class="login-link" bindtap="navigateToLogin">已有账号？立即登录</view>
+  </view>
+</view>
