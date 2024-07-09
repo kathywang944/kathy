@@ -1,0 +1,28 @@
+<view class="container">
+  <!-- 上方可横向滑动区域 -->
+  <scroll-view class="dog-scroll" scroll-x="true" scroll-with-animation>
+    <block wx:for="{{dogs}}" wx:key="id">
+      <view class="dog-avatar-container" bindtap="selectDog" data-id="{{item._id}}">
+        <image class="dog-avatar" src="{{item.image}}" mode="cover"></image>
+      </view>
+    </block>
+  </scroll-view>
+
+  <!-- 下方竖向滑动的日记区域 -->
+  <scroll-view class="diary-scroll" scroll-y="true" scroll-with-animation style="flex: 1;">
+    <block wx:for="{{posts}}" wx:key="id">
+      <view class="post-container" bindtap="viewPost" data-id="{{item.id}}">
+        <view class="post-header">
+          <image class="post-dog-avatar" src="{{item.dogAvatarUrl}}" mode="cover"></image>
+          <text class="post-date">{{item.date}}</text>
+        </view>
+        <text class="post-content">{{item.content}}</text>
+        <view class="post-footer">
+          <image class="like-icon" src="/images/like.png" bindtap="likePost" data-id="{{item.id}}"></image>
+          <text class="like-count">{{item.likes}} likes</text>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+<tabbar selected="index"></tabbar>
